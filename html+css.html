@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./mycss.css"><!--引入外部样式表-->
+
+    <style>
+        /*@keyframes动画*/
+        /* 图标阿里云素材库导入  */
+        body {
+            background-attachment:fixed
+
+        }
+        div {/*盒子*/
+            width: auto;
+            height: auto;
+            padding: 20px;/*内边距*/
+            padding-left: 2px;/*盒子四个方向的内边距都可以设置*/
+            border: #18c77f 1px solid;/*边框线  solid实线 dashed 虚线 dotted点线*/
+            border-bottom: #213 2px dashed;/*盒子四个方向的边框线都可以设置*/
+            border-radius: 1px;/*盒子圆角效果 5%*/
+            margin: 10px;/*外边距*/
+            margin-top: auto;/*四个方向依然*/
+            /*一般要清除默认边距*/
+            /* 盒子内容溢出 尺寸小 内容多*/
+            overflow: hidden;/*hidden 隐藏溢出 scroll 显示滚动条 auto 溢出才有滚动条*/
+            /* 合并现象 上下盒子之间取大外边距为较大的生效 and 盒子塌陷问题*/
+            box-shadow: inset;/*盒子阴影*/
+
+        }
+        .class1 {
+            background-image: url(./Your_name2.jpg);
+            /*class一般设置css*/
+            color: red;
+            font-size: 35px;
+            font-weight: 700;
+            font-family: 楷体;
+            font-style: normal;/*italic倾斜*/
+            line-height: 100px;/*多行文本行间距设置*/
+            text-indent: 2em;/*文本首行缩进2个字体大小*/
+            text-align: center;/*文本对齐*/
+            text-decoration: none;/*underline 是下划线*/           
+            border-left-color: antiquewhite;           
+            background-repeat: no-repeat;/*默认平铺*//*nr 不平铺 repeat 平铺 repeat-x 水平平铺 repeat-y*/           
+            background-position: 0 0;/*背景图位置00代表左上角 left top bottom right center*/        
+            background-size: contain;/*背景图大小 百分比 像素 cover 等比完全覆盖背景  ； contain 尽量显示全*/
+            background-attachment: fixed;/*背景图固定 fixed*/
+            
+        }
+
+        .class2 {
+            display: block;/*独占一行*/
+            
+            width: 200px;
+            height: 80px;
+            line-height: 80px;/*和height一样 就是垂直居中*/
+            
+            background-color: #3064bb;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .class2:hover {
+            background-color: #18c7ef;
+        }
+
+        #id1 {
+            color: blueviolet;
+        }
+
+        div span {
+            /*后代选择器 div里面的所有span*/
+            color: rgb(249, 18, 110);
+        }
+
+        div>span {
+            /*子代选择器 div里面的子代span*/
+            color: rgb(246, 10, 136);
+        }
+
+        div,
+        p,
+        span {
+            /*并集选择器*/
+            color: rgb(6, 125, 228);
+        }
+
+        p.class1 {
+            /*即是class1 又是 p 交集选择器*/
+            color: rgb(239, 147, 27);
+        }
+
+        /* { *所有标签的css
+
+        }*/
+        .class1:hover {
+            /*hover 代表鼠标悬停在这时的css样式  伪类选择器*/
+            color: crimson;
+        }
+
+        a:hover {
+            /* 超链接也有四个状态 严格安装LVHA 顺序写 :link 访问前 :访问后 :hover 鼠标悬停时 :active 点击时*/
+            color: crimson;
+        }
+
+        /*css有继承 优先级: 行内样式>id>class>标签>通配符*/
+        li:first-child {   /*结构伪类选择器li标签的第一个*/
+            background-color: #18c7ef;
+        }
+        li:last-child {/*结构伪类选择器li标签的最后个*/
+            background-color: #ea7907;
+        }
+        li:nth-child(3){/*结构伪类选择器li标签的第n个  2n偶数 2n+1单数 5n五的倍数 n+5第五个以后的所有 -n+5第五个以前的所有*/
+            background-color: #18c77f;
+        }
+        li ::before { /*在li标签首位加元素*/
+            content: "before";
+            background-color: #18c77f;
+        }
+        li ::after { /*在li标签末位加元素*/
+            content: "after";
+            background-color: #18c77f;
+        }
+        
+        div .flexbox {/*弹性盒子*/
+            height: 60px;
+            width: 90px;
+            display: flex;
+            justify-content: space-between;/*列对齐方式*/
+            /*flex-start默认值，弹性盒子从起点开始依次排列
+            flex-end弹性盒子从终点开始依次排列
+            center弹性盒子沿主轴居中排列
+            space-between弹性盒子沿主轴均匀排列，空白间距均分在弹性盒子之间
+            space-around弹性盒子沿主轴均匀排列，空白间距均分在弹性盒子两侧
+            space-evenly弹性盒子沿主轴均匀排列，弹性盒子与容器之间间距相等*/
+            clear: both;/*清除浮动：父级盒子没有设置高度 子盒子有高度 会导致页面认为该父级盒子不存在    solve：在下面再加一个div块*/
+            flex-direction: row;/*设置上下主轴   默认水平row*/
+            flex: 1;/*伸缩比*/
+            flex-wrap: wrap;/*不够格就换行   nowrap*/
+            align-content: space-between;/*行对齐方式 和justify-content的属性值一样*/
+        }
+    </style>
+
+
+</head>
+
+<body>  
+    <p class="class1">测试CSS</p>
+    <div class="class1">都说编程开发很赚钱， 我苦心专研了两年，其中参加了不少的培训。
+        刚培训完两个星期我就收到了offer , 我承认我不是班里学习最好的。
+        但我却是班里第一个找到工作的， 而且还是个大厂我一-直相信勤能补拙。
+        只要有决心什么事都是可以做到的，今天入职一个星期了。
+        公司的人对我都很好，还给我配了电动车和头盔还有大衣。
+        不说了又接了个外卖。</div>
+    <div>
+        <div class="flexbox">flex</div>
+        <div class="flexbox">浮动盒子</div>
+        <div class="flexbox">查看</div>
+        <div class="flexbox">效果</div>
+    </div>
+    <strong style="color: brown; font-size: 30px;">这四个都不会换行 加粗的标签</strong>
+    <em class="class1">倾斜的标签</em>
+    <ins>下划线的标签</ins>
+    <del>删除线的标签</del>
+    <br>换行
+    <hr>单行线
+    <!--注释一下-->
+    <h1> h1->h6 标题标签</h1>
+    <p>段落标签 独占一行 </p>
+    <p>有行隙</p>
+    <div class="class1">
+        <img src="./宋雨琦.png" alt="替换文本" title="提示文本--这是宋雨琦" width="700"><!--默认等比例缩放-->
+
+    </div>
+    <a href="https://www.bilibili.com/" target="_blank">bilibili</a><!-- href 跳转地址 _blank再新窗口打开-->
+    <a href="#">空连接</a><br>
+    <audio src="NianBoy - Gentleman.mp3" controls autoplay></audio><!-- 音频 支持MP3、ogg、wav格式  controls 显示音频控制面板 loop 循环播放 autoplay 自动播放--><br>
+    <video src="./song.mp4" controls loop muted autoplay></video><!-- 视频 controls 显示视频控制面板 loop 循环播放 muted 静音播放 autoplay 自动播放--> <br>
+    <ul> <!--无序列表-->
+        <li>12345</li><!--列表条目-->
+        <li>02121</li>
+        <li>03121</li>
+        <!--list-style:none 清除列表前的符号  -->
+    </ul>
+    <ol><!--有序列表-->
+        <li>01</li><!--列表条目-->
+        <li>02</li>
+        <li>03</li>
+    </ol>
+    <dl><!--定义列表-->
+        <dt>列表标题</dt>
+        <dd>列表详情</dd>
+    </dl>
+    <table border="1"><!--boeder 加边框-->
+        <thead>
+            <tr><!--定义行-->
+                <th>姓名</th> <!--定义表头-->
+                <th>学号</th>
+                <th>绩点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>宋雨琦</td><!--定义单元格-->
+                <td rowspan="2">123</td><!--跨行合并rowspan-->
+                <td>1.23</td>
+            </tr>
+            <tr>
+                <td>鞠婧祎</td>
+                <!--<td>123</td>-->
+                <td>1.23</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td colspan="3">好</td><!--跨列合并colspan-->
+            <!--<td>好</td>
+            <td>好</td>-->
+        </tfoot>
+    </table>
+    <br>
+    <form action="">
+        单行文本框：<input type="text" placeholder="输入你的信息"><br> <!--placeholder 占位提示符-->
+
+        密码框：<input type="password" name="" id="" placeholder="输入你的密码"><br>
+
+        单选框：<input type="radio" name="sex" id="man" checked><label for="man">男</label> <!--name 用于控制单选 checked 默认选中功能-->
+        <label> <input type="radio" name="sex">女</label>
+
+        复选框：<input type="checkbox" name="" id="" checked> 唱<input type="checkbox" name="" id=""> 跳<input type="checkbox"
+            name="" id=""> rap<input type="checkbox" name="" id=""> 篮球<br>
+
+        上传文件：<input type="file" name="" id="" multiple><br><!--multiple 多选文件上传-->
+        <button type="submit">提交按钮</button>
+        <button type="reset">重置按钮</button>
+        <button>普通按钮</button><br>
+    </form>
+
+
+    <select name="" id=""> <!--下拉菜单-->
+        <option value="">CHN</option>
+        <option value="">CN</option>
+        <option value="" selected>PRC</option>
+    </select><br>
+    <textarea name="" id="" cols="30" rows="10">
+        多行文本域
+    </textarea>
+
+    <p> &lt; 小于号</p>
+    <p>&gt; 大于号</p>
+    <p>空格&nbsp;空格</p>
+
+    <div>独占一行</div>
+    <span>不换行</span>
+    <a href="#" class="class2">宋雨琦</a>
+    <a href="#" class="class2">鞠婧祎</a>
+
+</body>
+
+</html>
